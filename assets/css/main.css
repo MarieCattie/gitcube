@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url(../fonts/SourceSansPro-Regular.ttf);
+}
+@font-face {
+    font-family: 'SourceSansProLight';
+    src: url(../fonts/SourceSansPro-ExtraLight.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --size-medium: 24px;
+    --size-small: 14px;
+
+}
+html {
+    height: 100%;
+}
+.icon {
+    width: 28px;
+    height: 28px;
+}
+.icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.avatar {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #C4C4C4;
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*ШАПКА И ПОДВАЛ*/
+/*ШАПКА*/
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #0C71C1;
+}
+.logo {
+    display: flex;
+    text-decoration: none;
+}
+.logo__image {
+    max-width: 261px;
+    padding-left: 127px;
+    margin-right: 18px;
+}
+.logo__image img {
+    width: 100%;
+    height: 100%;
+}
+.logo__slogan {
+    font-family: 'SourceSansProLight';  
+    font-weight: 300;
+    font-size: 33px;
+    color: #FFFFFF;
+    padding-top: 15px;
+}
+.user {
+    display: flex;
+    align-items: center;
+    padding-right: 127px;
+}
+.user__notice {
+    margin-top: 5px;
+    margin-right: 28px;
+}
+.user__name {
+    font-size: 18px;
+    margin-left: var(--size-small);
+    padding-right: var(--size-medium);
+    color: #FFFFFF;
+}
+.user__arrow {
+    cursor: pointer;
+    text-decoration: none;
+    width: 14px;
+}
+/*//ШАПКА*/
+/*ПОДВАЛ*/
+.footer__menu {
+    display: flex;
+    padding-right: 127px;
+}
+.menu-link {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: .4s;
+}
+.menu-link::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #b5c7fd;
+    transition: .4s ease-in-out;
+}
+.menu-link:not(:last-child) {
+    margin-right: var(--size-medium);
+}
+.menu-link:hover {
+    color: #b5c7fd;
+}
+.menu-link:hover::before {
+    width: 100%;
+}
+/*//ПОДВАЛ*/
+/*ШАПКА И ПОДВАЛ*/
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: 'SourceSansPro';
+}
+.container {
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: var(--size-medium);
+    margin-top: var(--size-medium);
+}
+.container > * {
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 1280px) {
+    .container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: var(--size-medium);
+}
+.container > * {
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.5);
+}
+.content, .content-2 {
+    grid-column-start: 1;
+    grid-column-end: span 7;
+}
+.bar {
+    grid-column-start: 8;
+    grid-column-end: span 3;
+} 
+}
+@media screen and (min-width: 1200px) {
+    .container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: var(--size-medium);
+    margin-top: var(--size-medium);
+}
+.content, .content-2 {
+    grid-column-start: 1;
+    grid-column-end: span 7;
+}
+.bar {
+    grid-column-start: 8;
+    grid-column-end: span 3;
+} 
+}
+@media screen and (min-width: 921px) and (max-width: 1199px) {
+    .container {
+    max-width: 921px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: var(--size-medium);
+    margin-top: var(--size-medium);
+}
+.content, .content-2 {
+    grid-column-start: 1;
+    grid-column-end: span 7;
+}
+.bar {
+    grid-column-start: 8;
+    grid-column-end: span 3;
+}
+}
+
+@media screen and (max-width: 720px) {
+    .container {
+    max-width: 480px;
+    width: 100%;
+    margin-top: var(--size-medium);
+}
+}
