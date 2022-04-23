@@ -291,6 +291,15 @@ header, footer {
         flex-direction: column;
         align-items: center;
     }
+    .logo__slogan {
+        display: none;
+    }
+    footer .logo {
+        margin-left: 0;
+    }
+    .btn {
+        padding: 2px 53px;
+    }
 }
 @media screen and (max-width: 920px) {
     footer {
@@ -395,6 +404,11 @@ header, footer {
     border: 1px solid #008DFF;
     background-color: transparent;
 }
+@media screen and (max-width: 960px) {
+    .btn {
+        padding: 2px 23px;
+    }
+}
 /*Content Blocks*/
 .content-container {
     height: max-content;
@@ -451,6 +465,21 @@ header, footer {
     font-family: 'SourceSansProLight';
     font-size: 18px;
     color: #041522;
+}
+@media screen and (max-width: 960px) {
+    .profile__avatar {
+        margin-bottom: 15px;
+    }
+    .profile__name {
+        margin-bottom: 8px;
+    }
+    .profile__info {
+        margin-top: 16px;
+    }
+    .logout {
+        margin-top: 16px;
+    }
+    
 }
 /*My friends*/
 
@@ -527,6 +556,13 @@ header, footer {
     }
     .profile__status {
         margin-left: -10px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .content-container {
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
     }
 }
 /*Profile content*/
@@ -624,6 +660,20 @@ header, footer {
     border-color: #5F91BA;
     color: #5F91BA;
 }
+@media screen and (max-width: 720px) {
+    .logo {
+        margin-left: 40px;
+    }
+    .rep__item .container-flex {
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .repository__lang  {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
 /*Short Codes*/
 .shortcodes {
     margin-top: var(--size-medium);
@@ -646,5 +696,42 @@ header, footer {
 .short__controls > a:not(:last-of-type) {
     margin-right: 8px;
 }
-
+.short__controls a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+.short__controls a.download {
+    border: 1px solid #008DFF;
+}
+.short__controls a.edit {
+    border: 1px solid #FF5C00;
+}
+.short__controls a.cdn {
+    border: 1px solid #00467D;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #00467D;
+}
+@media screen and (max-width: 720px) {
+    .container-grid-row-3-col-4 {
+        grid-template-columns: repeat(1, auto);
+    }
+    .short {
+        padding: 0;
+    }
+    .main-content__title {
+        flex-direction: column;
+    }
+    .title-1 {
+        margin-bottom: 15px;
+    }
+}
 
