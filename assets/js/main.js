@@ -26,3 +26,9 @@ $('.friends__showall').on('mouseleave', function() {
 $('.user__arrow').on('click', function() {
     $('.submenu').slideToggle(500);
 })
+
+
+//Паралакс
+$(document).on('mousemove', e => {
+    $('body').css('background-position', `${e.clientX * 0.15}px ${e.clientY * 0.15}px`)
+})
