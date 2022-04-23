@@ -14,3 +14,11 @@ function toggleForm(hiddenForm, shownForm) {
         shownForm.fadeIn(300)
     }, 1000)
 }
+// Показать больше
+
+$('.friends__showall').on('mouseenter', function() {
+    $('.friends__showall .after').css({"animation-name": "rotate", "animation-duration": "1.3s", "animation-iteration-count": "infinite", "animation-timing-function": "ease-in-out", "animation-direction": "alternate"});
+})
+$('.friends__showall').on('mouseleave', function() {
+    $('.friends__showall .after').css({"animation": "none"});
+})
