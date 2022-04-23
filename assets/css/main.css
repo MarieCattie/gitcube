@@ -97,25 +97,27 @@ header, footer {
 .logo {
     display: flex;
     text-decoration: none;
+    margin-left: 127px;
 }
 .logo__image {
-    max-width: 261px;
-    padding-left: 127px;
+    width: 61px;
     margin-right: 18px;
     flex-shrink: 0;
 }
 .logo__image img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 .logo__slogan {
     font-family: 'SourceSansProLight';  
     font-weight: 300;
-    font-size: 33px;
+    font-size: 28px;
     color: #FFFFFF;
-    padding-top: 15px;
+    padding-top: 11px;
 }
 .user {
+    position: relative;
     display: flex;
     align-items: center;
     padding-right: 127px;
@@ -129,6 +131,30 @@ header, footer {
     margin-left: var(--size-small);
     padding-right: var(--size-medium);
     color: #FFFFFF;
+}
+.submenu {
+    display: none;
+    width: 200px;
+    position: absolute;
+    background-color: #0C71C1;
+    bottom: 0;
+    transform: translate(50px, 100%);
+    list-style: none;
+    padding-top: var(--size-medium);
+}
+.submenu__item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #fff;
+    padding-left: var(--size-medium);
+}
+.submenu__link {
+    color: #fff;
+    font-size: 16px;
+}
+.submenu__exit {
+    margin-top: 34px;
+    border-top: 1px solid #fff;
 }
 .user__arrow {
     cursor: pointer;
@@ -225,6 +251,9 @@ header, footer {
 }
 }
 @media screen and (min-width: 921px) and (max-width: 1199px) {
+    footer {
+        margin-top: var(--size-medium);
+    }
     .container {
     max-width: 921px;
     width: 100%;
@@ -264,6 +293,9 @@ header, footer {
     }
 }
 @media screen and (max-width: 920px) {
+    footer {
+        margin-top: var(--size-medium);
+    }
     .container {
         grid-gap: var(--size-medium);
     }
@@ -297,7 +329,10 @@ header, footer {
         display: none;
     }
     .container {
-        max-width: 90%;
+        max-width: 680px;
+    }
+    .content-container {
+        max-width: 680px;
     }
     .profile, .profile__user {
         flex-direction: column;
@@ -338,7 +373,8 @@ header, footer {
     transition: .4s;
 }
 .btn:hover {
-    color: #008DFF;
+    color: #ffffff;
+    background-color: #008DFF;
     border: 1px solid #008DFF;
 }
 .btn-danger {
@@ -355,8 +391,9 @@ header, footer {
     border: 1px solid #707070;
 }
 .btn-grey:hover {
-    color: #704aed;
-    border: 1px solid #704aed;
+    color: #008DFF;
+    border: 1px solid #008DFF;
+    background-color: transparent;
 }
 /*Content Blocks*/
 .content-container {
@@ -399,7 +436,7 @@ header, footer {
     font-family: 'SourceSansProLight';
     font-family: 'Open Sans';
     font-size: 14px;
-    color: #041522;
+    color: #77838a;
 }
 .profile__status::before {
     content: '';
