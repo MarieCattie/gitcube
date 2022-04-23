@@ -30,5 +30,5 @@ $('.user__arrow').on('click', function() {
 
 //Паралакс
 $(document).on('mousemove', e => {
-    $('body').css('background-position', `${e.clientX * 0.15}px ${e.clientY * 0.15}px`)
+    $('body').css('background-position', `${e.clientX * 0.05}px ${e.clientY * 0.05}px`)
 })
