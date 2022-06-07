@@ -32,3 +32,26 @@ $('.user__arrow').on('click', function() {
 $(document).on('mousemove', e => {
     $('body').css('background-position', `${e.clientX * 0.05}px ${e.clientY * 0.05}px`)
 })
+
+//Смена названия шорткода
+$('.shortcode').on('click', '.shortcode__title', function(e) {
+    e.stopPropagation()
+    let name = $(this).text()
+    $('.shortcode__postitle').before(`<div class="container-flex shortcode__form"><input type="text" class="shortcode__field" value="${name}"><button class="btn shortcode__btn">Сохранить</button</div>`)
+    $(this).remove()
+})
+window.onclick = function(e) {
+    e.preventDefault()
+    if(!$('.shortcode__title').length) {
+        $('.shortcode__postitle').before(`<h1 class="title-1 shortcode__title">test.php</h1>`)    
+        $('.shortcode__form').remove()
+    }
+}
+$('.shortcode').on('click', '.shortcode__field', function(e) {
+    e.stopPropagation()
+})
+//Действие по кнопке Сохранить при смене названия
+$('.shortcode').on('click', '.shortcode__btn', function(e) {
+    e.stopPropagation()
+    console.log('click')
+})

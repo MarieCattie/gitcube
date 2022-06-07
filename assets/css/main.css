@@ -10,6 +10,7 @@
     font-family: 'SourceSansProSemiBold';
     src: url(../fonts/SourceSansPro-SemiBold.ttf);
 }
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,400&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +27,16 @@ a {
 button {
     background-color: transparent;
     border: none;
+}
+textarea {
+    resize: none;
+    padding: 20px;
+}
+textarea::placeholder {
+    font-family: 'SourceSansPro';
+    font-size: 16px;
+    line-height: 22px;
+    color: #C4C4C4;
 }
 html {
     height: 100%;
@@ -61,6 +72,10 @@ body {
     background: #FEFCFC;
     box-shadow: 2px 4px 24px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
+}
+.container-column {
+    display: flex;
+    flex-direction: column;
 }
 .icon {
     width: 28px;
@@ -225,6 +240,9 @@ header, footer {
 .main-content {
     grid-row-start: 3;
 }
+.shortcode {
+    grid-row-start: 1;
+}
 }
 @media screen and (min-width: 1200px) {
     .container {
@@ -237,6 +255,9 @@ header, footer {
     grid-column-gap: var(--size-medium);
     margin-top: var(--size-medium);
 }
+.container-row {
+    grid-template-rows: auto;
+}
 .content {
     grid-column-start: 1;
     grid-column-end: span 7;
@@ -248,6 +269,9 @@ header, footer {
 .main-content {
     grid-row-start: 3;
     margin-bottom: 24px;
+}
+.shortcode {
+    grid-row-start: 1;
 }
 }
 @media screen and (min-width: 921px) and (max-width: 1199px) {
@@ -274,6 +298,9 @@ header, footer {
 .main-content {
     grid-row-start: 3;
 }
+.shortcode {
+    grid-row-start: 1;
+}
 }
 @media screen and (max-width: 960px) {
     .container {
@@ -298,7 +325,7 @@ header, footer {
         margin-left: 0;
     }
     .btn {
-        padding: 2px 53px;
+        padding: 10px 53px;
     }
 }
 @media screen and (max-width: 920px) {
@@ -368,8 +395,29 @@ header, footer {
     font-size: 18px;
     color: #00467D;
 }
+.postitle {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 7px;
+    color: #707070;
+}
+.postitle::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 5px;
+}
 /*Button*/
 .btn {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -406,7 +454,7 @@ header, footer {
 }
 @media screen and (max-width: 960px) {
     .btn {
-        padding: 2px 23px;
+        padding: 7px 23px;
     }
 }
 /*Content Blocks*/
@@ -734,4 +782,99 @@ header, footer {
         margin-bottom: 15px;
     }
 }
-
+/*ФОРМА*/
+.form__field {
+    border: 1px solid #868686;
+    color: #041522;
+    filter: drop-shadow(0px 2px 7px rgba(10, 14, 33, 0.24));
+    border-radius: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    outline: none;
+    transition: .4s;
+}
+.form__field option {
+    background-color: #ffffff;
+    color: #868686;
+}
+.form__field option:hover {
+    background-color: #D3E9FC;
+    color: #008DFF
+}
+.form__field:focus {
+    filter: drop-shadow(0px 2px 7px rgba(56, 119, 219, 0.557));
+    border: 1px solid rgba(19, 102, 235, 0.721);
+}
+/*//ФОРМА*/
+/*ТЕХПОДДЕРЖКА*/
+.support {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.support__field {
+    background-color: #fff;
+    margin-bottom: 30px;
+    font-family: 'SourceSansPro', Arial;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #041522;
+}
+/*//ТЕХПОДДЕРЖКА*/
+/* ШОРТКОД */
+.shortcode {
+}
+.shortcode__head {
+    padding-bottom: 11px;
+    border-bottom: 1px solid #D8D8D8;
+}
+.shortcode__title::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+    width: 27px;
+    height: 27px;
+    background-image: url(../img/shortcode-page-title-copy.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.shortcode__postitle::before {
+    background-image: url(../img/grey_person-fill-author.svg);
+}
+.shortcode__content {
+    width: 100%;
+    min-height: 500px;
+    border-radius: 5px;
+    background-color: #5F91BA;
+}
+.shortcode__field {
+    display: block;
+    max-width: 244px;
+    min-height: 34px;
+    border: 1px solid #00467D;
+    padding-left: 20px;
+    border-radius: 5px;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    line-height: 30px;
+    color: #00467D;
+    margin-right: 10px;
+}
+.shortcode__btn {
+    max-height: 35px;
+}
+/* // ШОРТКОД */
+/* ФАЙЛ */
+.file__postitle::before {
+    background-image: url(../img/git-repository-line.svg);
+}
+/*РЕПОЗИТОРИЙ*/
+.views__postitle {
+    background-repeat: no-repeat;
+    background-image: url(../img/eye.svg);
+}
