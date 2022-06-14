@@ -37,13 +37,13 @@ $(document).on('mousemove', e => {
 $('.shortcode').on('click', '.shortcode__title', function(e) {
     e.stopPropagation()
     let name = $(this).text()
-    $('.shortcode__postitle').before(`<div class="container-flex shortcode__form"><input type="text" class="shortcode__field" value="${name}"><button class="btn shortcode__btn">Сохранить</button</div>`)
+    $('#postitle-container').before(`<div class="container-flex shortcode__form"><input type="text" class="shortcode__field" value="${name}"><button class="btn shortcode__btn">Сохранить</button</div>`)
     $(this).remove()
 })
 window.onclick = function(e) {
     e.preventDefault()
-    if(!$('.shortcode__title').length) {
-        $('.shortcode__postitle').before(`<h1 class="title-1 shortcode__title">test.php</h1>`)    
+    if(!$('.shortcode__title').length ) {
+        $('#postitle-container').before(`<h1 class="title-1 shortcode__title">`+$('.shortcode__field').val()+`</h1>`)    
         $('.shortcode__form').remove()
     }
 }
@@ -53,5 +53,4 @@ $('.shortcode').on('click', '.shortcode__field', function(e) {
 //Действие по кнопке Сохранить при смене названия
 $('.shortcode').on('click', '.shortcode__btn', function(e) {
     e.stopPropagation()
-    console.log('click')
 })
