@@ -15,11 +15,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'SourceSansPro';
 }
 :root {
     --size-medium: 24px;
     --size-small: 14px;
-
 }
 a {
     text-decoration: none;
@@ -396,7 +396,7 @@ header, footer {
     color: #00467D;
 }
 .postitle {
-    font-family: 'Open Sans';
+    font-family: 'SourceSansPro';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -414,6 +414,7 @@ header, footer {
     background-size: contain;
     background-position: center;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 /*Button*/
 .btn {
@@ -874,7 +875,12 @@ header, footer {
     background-image: url(../img/git-repository-line.svg);
 }
 /*РЕПОЗИТОРИЙ*/
-.views__postitle {
+.views__postitle::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
     background-repeat: no-repeat;
     background-image: url(../img/eye.svg);
 }
@@ -897,7 +903,7 @@ header, footer {
 .show-more span {
     margin-right: 8px;
 }
-.show-more__popup {
+.show-more__popup, .show-more__popup-select {
     right: 0;
     position: absolute;
     padding: 14px;
@@ -909,12 +915,27 @@ header, footer {
     display: none;
     flex-direction: column;
 }
-.show-more__popup__item {
-    font-family: 'Open Sans';
+.show-more__popup-select {
+    padding: 5px;
+    top: 37px;
+    min-height: auto;
+    border-radius: 10px;
+}
+.show-more__popup__item, .show-more__popup-select-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans'б sans-serif;
     padding-top: 7px;
     padding-bottom: 7px;
     font-size: 14px;
     color: #041522;
+}
+.show-more__popup-select-item:hover {
+    background-color: #D3E9FC;
+}
+.show-more__popup__item-select {
+    position: relative;
 }
 .show-more__popup__item::before {
     content: '';
@@ -958,6 +979,9 @@ header, footer {
 .show-more__popup__item-uploadfile::before {
     background-image: url(../img/show-more-uploadfile.svg);
 }
+.show-more__popup__item-copy::before {
+    background-image: url(../img/show-more-copy.svg);
+}
 .show-more__popup__item-public::before {
     background-image: url(../img/show-more-public.svg);
 }
@@ -969,4 +993,97 @@ header, footer {
     vertical-align: middle;
     margin-left: 5px;
     background-image: url(../img/show-more-arrow-bottom-select.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*Repository-list*/
+.repository-list {
+    width: 70%;
+    border-radius: 5px;
+    padding: 3px 12px;
+    border: 1px solid #D8D8D8;
+    margin-bottom: 15px;
+}
+.repository-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.repository-list__item:not(:last-of-type) {
+    width: 100%;
+    border-bottom: 1px solid #D8D8D8;
+}
+.repository-list__link {
+    color: #041522;
+    font-style: 600px;
+    margin-left: 11px;
+    transition: .3s;
+}
+.repository-list__link:hover {
+    color: #008DFF;
+}
+.repository-list__image {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.repository-list__image-file {
+    background-image: url(../img/repository-file.svg);
+}
+.repository-list__image-folder {
+    background-image: url(../img/repository-folder.svg);
+}
+.repository-list__image-del {
+    cursor: pointer;
+    background-image: url(../img/show-more-delete.svg);
+}
+.repository-list__filesize {
+    font-size: 14px;
+    color: #868686;
+    margin-right: 11px;
+}
+/*Comments*/
+.comment-section {
+    width: 70%;
+}
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+.comments__item {
+    margin-top: 16px;
+    margin-bottom: 15px;
+}
+.comment {
+    border: 1px solid #D8D8D8;
+}
+.comment__head {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #D8D8D84A;
+}
+.comment__avatar-author {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #041522;
+}
+.comment__name-author {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    padding-left: 11px;
+}
+.comment__main {
+    padding: 16px 52px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -26,6 +26,17 @@ $('.friends__showall').on('mouseleave', function() {
 $('.user__arrow').on('click', function() {
     $('.submenu').slideToggle(500);
 })
+$('.show-more__popup__item-select').on('mouseover', function () {
+    $('.show-more__popup-select').fadeIn()
+})
+$('.show-more__popup__item-select').on('mouseleave', function () {
+    $('.show-more__popup-select').fadeOut()
+})
+//Публичный/приватный репозиторий
+$('.show-more__popup-select-item').on('click', function() {
+    $('.show-more__item-active').attr('data-type', $(this).attr('data-type'))
+    $('.show-more__item-active').text($(this).text())
+})
 
 
 //Паралакс
@@ -61,6 +72,5 @@ $('.shortcode').on('click', '.shortcode__btn', function(e) {
 $('.show-more').on('click', function(e) {
     e.stopPropagation()
     $('.show-more .show-more__popup').css("display", "flex")
-    .hide()
     .fadeIn();
 })
