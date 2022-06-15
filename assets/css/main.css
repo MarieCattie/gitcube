@@ -156,6 +156,7 @@ header, footer {
     transform: translate(50px, 100%);
     list-style: none;
     padding-top: var(--size-medium);
+    z-index: 100;
 }
 .submenu__item {
     padding-top: 12px;
