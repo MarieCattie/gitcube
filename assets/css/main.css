@@ -1055,6 +1055,8 @@ header, footer {
     flex-direction: column;
 }
 .comments__item {
+    width: 100%;
+    display: block;
     margin-top: 16px;
     margin-bottom: 15px;
 }
