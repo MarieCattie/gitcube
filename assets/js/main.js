@@ -46,11 +46,21 @@ window.onclick = function(e) {
         $('#postitle-container').before(`<h1 class="title-1 shortcode__title">`+$('.shortcode__field').val()+`</h1>`)    
         $('.shortcode__form').remove()
     }
+    $('.show-more .show-more__popup').fadeOut()
+
+
 }
+//Действие по кнопке Сохранить при смене названия
 $('.shortcode').on('click', '.shortcode__field', function(e) {
     e.stopPropagation()
 })
-//Действие по кнопке Сохранить при смене названия
 $('.shortcode').on('click', '.shortcode__btn', function(e) {
     e.stopPropagation()
+})
+//При клике вне модального окна, оно скрывается
+$('.show-more').on('click', function(e) {
+    e.stopPropagation()
+    $('.show-more .show-more__popup').css("display", "flex")
+    .hide()
+    .fadeIn();
 })
