@@ -52,8 +52,8 @@ $('.shortcode').on('click', '.shortcode__title', function(e) {
     $(this).remove()
 })
 window.onclick = function(e) {
-    e.preventDefault()
-    if(!$('.shortcode__title').length ) {
+    if(!$('.shortcode__title').length && !$('a').length && !$('button').length && !$('input').length && !('textarea').length) {
+        e.preventDefault()
         $('#postitle-container').before(`<h1 class="title-1 shortcode__title">`+$('.shortcode__field').val()+`</h1>`)    
         $('.shortcode__form').remove()
     }
