@@ -167,6 +167,13 @@ header, footer {
 .submenu__link {
     color: #fff;
     font-size: 16px;
+    transition: 0.4s ease-in-out;
+}
+.submenu__link:hover {
+    color: #cc96ff;
+}
+.submenu__exit .submenu__link:hover {
+    color: #e3b0c5;
 }
 .submenu__exit {
     margin-top: 34px;
@@ -606,6 +613,9 @@ header, footer {
     }
     .profile__status {
         margin-left: -10px;
+    }
+    .submenu {
+        transform: translate(15px, 100%);
     }
 }
 @media screen and (max-width: 600px) {
