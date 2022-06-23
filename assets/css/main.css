@@ -818,6 +818,24 @@ header, footer {
     filter: drop-shadow(0px 2px 7px rgba(56, 119, 219, 0.557));
     border: 1px solid rgba(19, 102, 235, 0.721);
 }
+.bar__search {
+    margin-top: 15px;
+    background-color: #f6f6f7;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+    color: #000000;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #6A0081;
+    border-bottom-width: 0;
+    transition: 0.3s ease-in-out;
+}
+.bar__search:focus {
+    border-bottom: 2px solid #6A0081;
+    border-bottom-width: 100%;
+}
 /*//ФОРМА*/
 /*ТЕХПОДДЕРЖКА*/
 .support {
