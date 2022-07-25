@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <title>GitCube | репозиторий</title>
+    <link rel="shortcut icon" href="assets/img/logo-filled.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -17,7 +21,10 @@
         </a>
 
         <div class="user">
-            <div class="icon user__notice"><img src="assets/img/bell.svg" alt=""></div>
+            <a class="icon user__notice"><img src="assets/img/bell.svg" alt="">
+                <!-- Красный кружочек уведомление -->
+                <span class="user__notice--new">1</span>
+            </a>
             <div class="avatar">
                 <!-- Место для изображения img -->
             </div>
@@ -25,7 +32,6 @@
             <a class="icon user__arrow"><img src="assets/img/arrow.svg" alt=""></a>
             <ul class="submenu">
                 <li class="submenu__item"><a href="" class="submenu__link">Настройки</a></li>
-                <li class="submenu__item"><a href="" class="submenu__link">Темы</a></li>
                 <li class="submenu__item submenu__exit"><a href="" class="submenu__link">Выйти</a></li>
             </ul>
         </div>
@@ -71,6 +77,11 @@
                 <!-- // Секция -->
                 <!-- Секция -->
                 <section>
+                    <div class="search-field search-repo">
+                        <input placeholder="Поиск по файлам и папкам" id="search" type="text" autocomplete="off"
+                            class="form__field search-lang__input">
+                        <label for="search" class="search-field__icon"></label>
+                    </div>
                     <div class="repository-list">
                         <!-- Файл -->
                         <div class="repository-list__item">
@@ -131,10 +142,20 @@
                         </form>
                         <!-- Комментарий -->
                         <div class="comments__item comment">
-                            <div class="comment__head">
-                                <a href="" class="comment__avatar-author"></a>
-                                <a href="" class="comment__name-author">Alice</a>
+
+                            <div class="comment__head container-flex">
+                                    <div class="container-flex">
+                                        <a href="" class="comment__avatar-author"></a>
+                                        <a href="" class="comment__name-author">Alice</a>
+                                    </div>
+                                    <div>
+                                        <a href="" class="short__link">Пожаловаться</a>
+                                        <a href="" class="delete"></a>
+                                    </div>
+
+
                             </div>
+
                             <div class="comment__main">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur obcaecati iusto
                                 provident eligendi officia rerum ipsam doloremque, corrupti fugiat minima laudantium,
@@ -168,6 +189,11 @@
                         </div>
                         <!-- // Комментарий -->
                     </div>
+                    <div class="pagination">
+                        <a href="" class="pagination__item">1</a>
+                        <a href="" class="pagination__item">2</a>
+                        <a href="" class="pagination__item">3</a>
+                    </div>
                 </section>
             </div>
             <!-- // ОСНОВНОЙ -->
@@ -187,6 +213,7 @@
     </footer>
     <script src="assets/js/jquery-3.6.0.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/short.js"></script>
 </body>
 
 </html>

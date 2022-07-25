@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>GitCube | мои репозитории</title>
+    <link rel="shortcut icon" href="assets/img/logo-filled.svg" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo__image"><img src="assets/img/logo.svg" alt=""></div>
+            <p class="logo__slogan">GitCube</p>
+        </a>
+
+        <div class="user">
+            <a class="icon user__notice"><img src="assets/img/bell.svg" alt="">
+                <!-- Красный кружочек уведомление -->
+                <span class="user__notice--new">1</span>
+            </a>
+            <div class="avatar">
+                <!-- Место для изображения img -->
+            </div>
+            <p class="user__name">Мария</p>
+            <a class="icon user__arrow"><img src="assets/img/arrow.svg" alt=""></a>
+            <ul class="submenu">
+                <li class="submenu__item"><a href="" class="submenu__link">Настройки</a></li>
+                <li class="submenu__item submenu__exit"><a href="" class="submenu__link">Выйти</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container container-row">
+            <!-- ОСНОВНОЙ -->
+            <div class="content-container content">
+                <!-- Секция -->
+                <section>
+                    <div class="container-flex main-content__title">
+                        <h1 class="title-1">Мои репозитории</h1>
+                        <div class="search-field">
+                            <input placeholder="Найти" id="search" type="text" class="form__field">
+                            <label for="search" class="search-field__icon"></label>
+                        </div>
+                    </div>
+                </section>
+                <!-- // Секция -->
+                <!-- Секция -->
+                <section>
+                    <div class="container-grid-4 rep">
+                        <!-- Репозиторий -->
+                        <div class="rep__item repository">
+                            <p class="repository__title">FlightPool layout</p>
+                            <div class="container-flex">
+                                <span class="repository__lang lang-html">HTML</span>
+                                <span class="repository__update">обновлен 2 часа назад</span>
+                            </div>
+                        </div>
+                        <!-- || Репозиторий -->
+
+                        <!-- Репозиторий -->
+                        <div class="rep__item repository">
+                            <p class="repository__title">Task Manager</p>
+                            <div class="container-flex">
+                                <span class="repository__lang lang-php">PHP</span>
+                                <span class="repository__update">обновлен 2 часа назад</span>
+                            </div>
+                        </div>
+                        <!-- || Репозиторий -->
+                        <!-- Репозиторий -->
+                        <div class="rep__item repository">
+                            <p class="repository__title">New App</p>
+                            <div class="container-flex">
+                                <span class="repository__lang lang-sharp">C#</span>
+                                <span class="repository__update">обновлен 2 часа назад</span>
+                            </div>
+                        </div>
+                        <!-- || Репозиторий -->
+                        <!-- Репозиторий -->
+                        <div class="rep__item repository">
+                            <p class="repository__title">CounterJS</p>
+                            <div class="container-flex">
+                                <span class="repository__lang lang-js">JS</span>
+                                <span class="repository__update">обновлен 2 часа назад</span>
+                            </div>
+                        </div>
+                        <!-- || Репозиторий -->
+                    </div>
+                </section>
+                <!-- // Секция -->
+            </div>
+            <!-- // ОСНОВНОЙ -->
+
+        </div>
+    </main>
+    <footer>
+        <a class="logo">
+            <div class="logo__image"><img src="assets/img/logo.svg" alt=""></div>
+            <p class="logo__slogan">GitCube</p>
+        </a>
+        <nav class="footer__menu">
+            <a href="" class="menu-link">Главная</a>
+            <a href="" class="menu-link">Документация</a>
+            <a href="" class="menu-link">Техническая поддержка</a>
+        </nav>
+    </footer>
+    <script src="assets/js/jquery-3.6.0.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

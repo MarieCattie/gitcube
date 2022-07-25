@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>GitCube | создать репозиторий</title>
+    <link rel="shortcut icon" href="assets/img/logo-filled.svg" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo__image"><img src="assets/img/logo.svg" alt=""></div>
+            <p class="logo__slogan">GitCube</p>
+        </a>
+
+        <div class="user">
+            <a class="icon user__notice"><img src="assets/img/bell.svg" alt="">
+                <!-- Красный кружочек уведомление -->
+                <span class="user__notice--new">1</span>
+            </a>
+            <div class="avatar">
+                <!-- Место для изображения img -->
+            </div>
+            <p class="user__name">Мария</p>
+            <a class="icon user__arrow"><img src="assets/img/arrow.svg" alt=""></a>
+            <ul class="submenu">
+                <li class="submenu__item"><a href="" class="submenu__link">Настройки</a></li>
+                <li class="submenu__item submenu__exit"><a href="" class="submenu__link">Выйти</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container container-row">
+            <!-- ОСНОВНОЙ -->
+            <div class="content-container content main-content">
+                <!-- Секция -->
+                <section>
+                    <div class="container-flex main-content__title">
+                        <h1 class="title-1">Создать репозиторий</h1>
+                    </div>
+                </section>
+                <!-- // Секция -->
+                <!-- Секция -->
+                <section>
+                    <form action="" method="post" class="form create">
+                        <!-- Поле -->
+                        <div class="create__field">
+                            <label class="create__label" for="repo-name">Название репозитория</label>
+                            <input type="text" name="repo-name" id="repo-name" class="form__field create__input">
+                        </div>
+                        <!-- Поле -->
+                        <div class="create__field">
+                            <label class="create__label" for="repo-status">Статус репозитория</label>
+                            <select name="repo-status" id="repo-status" class="profile-edit__select form__field">
+                                <option value="repo-open">Открытый</option>
+                                <option value="repo-cllose">Закрытый</option>
+                            </select>
+                        </div>
+                        <!-- Поле -->
+                        <div class="create__field">
+                            <label class="create__label" for="repo-lang">Основной язык</label>
+                            <div class="search-field search-lang">
+                                <input placeholder="Начните вводить язык, например, javasctipt" id="search" type="text" autocomplete="off" class="form__field search-lang__input">
+                                <label for="search" class="search-field__icon"></label>
+                            </div>
+                            <div class="search-lang__result">
+                                <a class="choose-lang">javasctipt</a>
+                                <a class="choose-lang">typesctipt</a>
+                            </div>
+                            <!-- Список языков 
+                            <div class="lang-list">
+                                Радиокнопка
+                                <div class="lang-list__item">
+                                    <input type="radio" name="lang-item" class="lang-input" id="lang-item" value="html">
+                                    <label for="lang-item" class="lang-list__label"></label>
+                                    <label for="lang-item"><span class="repository__lang lang-html">HTML</span></label>
+                                </div>
+                                //Радиокнопка
+                            </div>
+                            //Список языков -->
+                        </div>
+                        <!-- Поле -->
+                        <div class="create__field">
+                            <label class="create__label" for="repo-access">Кто может заходить в репозиторий</label>
+                            <select name="repo-status" id="repo-access" class="profile-edit__select form__field">
+                                <option value="me">Только я</option>
+                                <option value="friends">Только мои друзья</option>
+                                <option value="all-friends">Друзья и друзья друзей</option>
+                                <option value="all">Все пользователи</option>
+                            </select>
+                        </div>
+                        <!-- Поле -->
+                        <button class="btn">Создать</button>
+                    </form>
+                </section>
+                <!-- // Секция -->
+            </div>
+            <!-- // ОСНОВНОЙ -->
+
+        </div>
+    </main>
+    <footer>
+        <a class="logo">
+            <div class="logo__image"><img src="assets/img/logo.svg" alt=""></div>
+            <p class="logo__slogan">GitCube</p>
+        </a>
+        <nav class="footer__menu">
+            <a href="" class="menu-link">Главная</a>
+            <a href="" class="menu-link">Документация</a>
+            <a href="" class="menu-link">Техническая поддержка</a>
+        </nav>
+    </footer>
+    <script src="assets/js/jquery-3.6.0.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

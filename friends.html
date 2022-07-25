@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
-    <title>GitCube | шорткод</title>
+    <title>GitCube | мои друзья</title>
     <link rel="shortcut icon" href="assets/img/logo-filled.svg" type="image/x-icon">
 </head>
 
@@ -36,40 +36,48 @@
     <main>
         <div class="container container-row">
             <!-- ОСНОВНОЙ -->
-            <div class="content-container content main-content shortcode">
+            <div class="content-container content">
                 <!-- Секция -->
-                <section class="shortcode__head">
+                <section>
                     <div class="container-flex main-content__title">
-                        <div>
-                            <h1 class="title-1 shortcode__title">short.js</h1>
-                            <p id="postitle-container" class="postitle shortcode__postitle">Загрузил(а) Evanessa</p>
-                        </div>
-                        <div class="show-more">
-                            <a class="show-more__btn"><span></span><span></span><span></span></a>
-                            <div class="show-more__popup">
-                                <a href="" class="show-more__popup__item show-more__popup__item-download">Скачать</a>
-                                <a href="" class="show-more__popup__item show-more__popup__item-copy">Скопировать
-                                    CDN</a>
-                                <a href="" class="show-more__popup__item show-more__popup__item-edit">Изменить</a>
-                                <a href="" class="show-more__popup__item show-more__popup__item-uploadfile">Загрузить
-                                    файл</a>
-                                <div
-                                    class="show-more__popup__item show-more__popup__item-public show-more__popup__item-select">
-                                    <a class="show-more__item-active" data-type="public">Публичный</a>
-                                    <div class="show-more__popup-select">
-                                        <a data-type="public" class="show-more__popup-select-item">Публичный</a>
-                                        <a data-type="private" class="show-more__popup-select-item">Закрытый</a>
-                                    </div>
-                                </div>
-                                <a class="show-more__popup__item show-more__popup__item-delete">Удалить</a>
-                            </div>
+                        <h1 class="title-1">Мои друзья</h1>
+                        <div class="search-field">
+                            <input placeholder="Найти по логину" id="search" type="text" class="form__field">
+                            <label for="search" class="search-field__icon"></label>
                         </div>
                     </div>
                 </section>
                 <!-- // Секция -->
                 <!-- Секция -->
-                <section class="shortcode__content">
+                <section class="allfriends">
+                    <!-- ПОЛЬЗОВАТЕЛЬ -->
+                    <div class="content profile allfriends__item">
+                        <div class="profile__user">
+                            <div class="profile__avatar allfriends__avatar">
+                                <!-- Место для изображения img -->
+                            </div>
+                            <a href="" class="profile__name">MarieCattie</a>
+                        </div>
 
+                        <div class="delete delete-all">
+                            Удалить из друзей
+                        </div>
+                    </div>
+                    <!-- // ПОЛЬЗОВАТЕЛЬ -->
+                    <!-- ПОЛЬЗОВАТЕЛЬ -->
+                    <div class="content profile allfriends__item">
+                        <div class="profile__user">
+                            <div class="profile__avatar allfriends__avatar">
+                                <!-- Место для изображения img -->
+                            </div>
+                            <a href="" class="profile__name">MarieCattie</a>
+                        </div>
+
+                        <div class="delete delete-all">
+                            Удалить из друзей
+                        </div>
+                    </div>
+                    <!-- // ПОЛЬЗОВАТЕЛЬ -->
                 </section>
                 <!-- // Секция -->
             </div>
@@ -90,7 +98,6 @@
     </footer>
     <script src="assets/js/jquery-3.6.0.js"></script>
     <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/short.js"></script>
 </body>
 
 </html>

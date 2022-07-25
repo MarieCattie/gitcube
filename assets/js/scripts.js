@@ -21,41 +21,28 @@ $('.show-more__popup-select-item').on('click', function() {
     $('.show-more__item-active').attr('data-type', $(this).attr('data-type'))
     $('.show-more__item-active').text($(this).text())
 })
-
-
 //Паралакс
 // $(document).on('mousemove', e => {
 //     $('body').css('background-position', `${e.clientX * 0.05}px ${e.clientY * 0.05}px`)
 // })
-
-//Смена названия шорткода
-$('.shortcode').on('click', '.shortcode__title', function(e) {
-    e.stopPropagation()
-    let name = $(this).text()
-    $('#postitle-container').before(`<div class="container-flex shortcode__form"><input type="text" class="shortcode__field" value="${name}"><a href='' class="btn shortcode__btn">Сохранить</a</div>`)
-    $(this).remove()
+//Поиск языка
+$('.search-lang__input').on('input', function() {
+    $(this).addClass('opened')
+    $('.search-lang__result').show();
 })
-window.onclick = function(e) {
-    if(!$('.shortcode__title').length && e.target.tagName !== 'button' && e.target.tagName !== 'a' && e.target.tagName !== 'input') {
-        e.preventDefault()
-        console.log(e.target.tagName)
-        $('#postitle-container').before(`<h1 class="title-1 shortcode__title">`+$('.shortcode__field').val()+`</h1>`)    
-        $('.shortcode__form').remove()
+$('.search-lang__input').on('change', function() {
+    if($('.search-lang__input').hasClass('opened')) {
+        $(document).on('click', function(e) {
+            if(!($(e.target).hasClass('choose-lang'))) {
+                hideSearchResult() 
+            }
+        })
     }
-    $('.show-more .show-more__popup').fadeOut()
-
-
+})
+$(document).on('click', '.choose-lang', function() {
+    $('.search-lang__input').val($(this).text())
+    hideSearchResult() 
+})
+function hideSearchResult() {
+    $('.search-lang__result').hide();
 }
-//Действие по кнопке Сохранить при смене названия
-$('.shortcode').on('click', '.shortcode__field', function(e) {
-    e.stopPropagation()
-})
-$('.shortcode').on('click', '.shortcode__btn', function(e) {
-    e.stopPropagation()
-})
-//При клике вне модального окна, оно скрывается
-$('.show-more').on('click', function(e) {
-    e.stopPropagation()
-    $('.show-more .show-more__popup').css("display", "flex")
-    .fadeIn();
-})

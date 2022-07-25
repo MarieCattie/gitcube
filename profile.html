@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <title>GitCube | профиль</title>
-    <style>
-
-    </style>
+    <link rel="shortcut icon" href="assets/img/logo-filled.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -20,7 +18,10 @@
         </a>
 
         <div class="user">
-            <div class="icon user__notice"><img src="assets/img/bell.svg" alt=""></div>
+            <a class="icon user__notice"><img src="assets/img/bell.svg" alt="">
+                <!-- Красный кружочек уведомление -->
+                <span class="user__notice--new">1</span>
+            </a>
             <div class="avatar">
                 <!-- Место для изображения img -->
             </div>
@@ -28,7 +29,6 @@
             <a class="icon user__arrow"><img src="assets/img/arrow.svg" alt=""></a>
             <ul class="submenu">
                 <li class="submenu__item"><a href="" class="submenu__link">Настройки</a></li>
-                <li class="submenu__item"><a href="" class="submenu__link">Темы</a></li>
                 <li class="submenu__item submenu__exit"><a href="" class="submenu__link">Выйти</a></li>
             </ul>
         </div>
@@ -68,7 +68,7 @@
                     <div class="container-grid-4 rep">
                         <!-- Репозиторий -->
                         <div class="rep__item repository">
-                            <p class="repository__title">FlightPool layout</p>
+                            <a class="repository__title">FlightPool layout</a>
                             <div class="container-flex">
                                 <span class="repository__lang lang-html">HTML</span>
                                 <span class="repository__update">обновлен 2 часа назад</span>
@@ -78,7 +78,7 @@
 
                         <!-- Репозиторий -->
                         <div class="rep__item repository">
-                            <p class="repository__title">Task Manager</p>
+                            <a class="repository__title">Task Manager</a>
                             <div class="container-flex">
                                 <span class="repository__lang lang-php">PHP</span>
                                 <span class="repository__update">обновлен 2 часа назад</span>
@@ -87,7 +87,7 @@
                         <!-- || Репозиторий -->
                         <!-- Репозиторий -->
                         <div class="rep__item repository">
-                            <p class="repository__title">New App</p>
+                            <a class="repository__title">New App</a>
                             <div class="container-flex">
                                 <span class="repository__lang lang-sharp">C#</span>
                                 <span class="repository__update">обновлен 2 часа назад</span>
@@ -96,7 +96,7 @@
                         <!-- || Репозиторий -->
                         <!-- Репозиторий -->
                         <div class="rep__item repository">
-                            <p class="repository__title">CounterJS</p>
+                            <a class="repository__title">CounterJS</a>
                             <div class="container-flex">
                                 <span class="repository__lang lang-js">JS</span>
                                 <span class="repository__update">обновлен 2 часа назад</span>
@@ -111,6 +111,7 @@
                     <div class="container-flex main-content__title">
                         <h1 class="title-1">Шорткоды</h1>
                         <div class="active-btns container-flex">
+                            <a href="shortcode-about.html" class="short__link">Что это такое?</a>
                             <a href="" class="btn">Создать новый</a>
                             <a href="" class="btn btn-grey">Показать все</a>
                         </div>
