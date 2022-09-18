@@ -1,0 +1,417 @@
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url(../fonts/SourceSansPro-Regular.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SourceSansPro';
+}
+body {
+    position: relative;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/bg.png);
+    background-size: cover;
+    overflow-x: hidden;
+}
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+}
+.mr-40 {
+    margin-right: 40px;
+}
+/* Шапка сайта */
+header {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    backdrop-filter: blur(2px);
+}
+
+.logo {
+    width: 170px;
+    color: white;
+    font-size: 28px;
+}
+
+.logo-footer {
+    width: 68px;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+/* || Шапка сайта */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #1c74bcae;
+}
+main {
+    width: 100%;
+    height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 92px;
+}
+.menu {
+    display: flex;
+}
+.menu__item {
+    list-style: none;
+}
+.menu__link {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: .4s;
+}
+.menu__link::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #b5c7fd;
+    transition: .4s ease-in-out;
+}
+.menu__link:hover {
+    color: #b5c7fd;
+}
+.menu__link:hover::before {
+    width: 100%;
+}
+/* Формы регистрации и входа */
+/* Текст о компании */
+.about {
+    width: 591px;
+    padding: 0 150px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about * {
+    color: #fff;
+    text-align: center;
+}
+.about__logo {
+    width: 257px;
+    height: 257px;
+}
+.about__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.about__company {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 28px;
+    margin-bottom: 23px;
+}
+.about__info {
+    line-height: 1.4;
+    font-size: 18px;
+}
+/* // Текст о компании */
+/* Контейнер с формами */
+.forms {
+    width: 500px;
+}
+/* Скрываем форму входа */
+#enter {
+    display: none;
+}
+#register-question {
+    display: none;
+}
+/* Стилизация модалки с формой */
+.popup {
+    padding: 24px 40px;
+    border: 1px solid #91a0ca70;
+    border-radius: 15px;
+    background-color: #001d6138;
+}
+.popup__text {
+    font-size: 16px;
+    color: #c8d0e1;
+}
+.popup__title {
+    font-size: 23px;
+    color: #c8d0e1;
+}
+.form__group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+    margin-bottom: 36px;
+}
+.form__label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #a3a8ff;
+}
+.form__check {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.form__check input[type="checkbox"] {
+    width: 1px;
+    height: 1px;
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+}
+.checkbox {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 2px solid #a3a8ff;
+    margin-right: 15px;
+}
+.checkbox::before {
+    content: '';
+    transform: translate(0%, -100%);
+    transition: 0.4s;
+}
+.form__check input[type="checkbox"]:checked + .checkbox::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/bi_check.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.4s;
+}
+.form__control {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.form__control:focus + .form__underline::before {
+    width: 100%;
+}
+.form__underline {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #c8d0e1;
+}
+.form__underline::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #704aed;
+    width: 0%;
+    height: 2px;
+    transition: 0.6s ease-in-out;
+}
+.popup__link {
+    cursor: pointer;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid #96d0ff;
+    text-decoration: none;
+    font-size: 16px;
+    color: #96d0ff;
+    padding: 12px;
+    transition: .4s ease-in-out;
+}
+.popup__link:hover {
+    border: 1px solid #cc96ff;
+    color: #cc96ff;
+}
+.popup__btn {
+    margin-top: 21px;
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+/* // Стилизация модалки с формой */
+/* Формы регистрации и входа */
+@media screen and (max-width: 1010px) {
+    body, main {
+        height: max-content;
+    }
+
+
+    .about {
+        width: 500px;
+        margin-top: 190px;
+    }
+    main .container-flex.main-content {
+        flex-direction: column;
+    }
+    .forms {
+        margin-bottom: 190px;
+    }
+
+    .about {
+        padding: 0;
+        margin-bottom: 50px;
+    }
+
+    .about__info {
+        padding: 0 10px;
+        font-size: 15px;
+    }
+
+}
+@media screen and (max-width: 1170px) {
+
+    header,
+    footer {
+        padding-left: 90px;
+        padding-right: 90px;
+    }
+    header {
+        background-color: #1c74bcae;
+    }
+}
+
+@media screen and (max-width: 735px) {
+
+    header,
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .about {
+        width: 100%;
+    }
+    .menu__link {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+
+    .about {
+        margin-top: 210px;
+    }
+    .popup__text {
+        display: none;
+    }
+
+    .popup {
+        padding: 30;
+    }
+
+    .about__info {
+        padding: 0 40px;
+    }
+
+    .forms {
+        width: 100%;
+        margin-bottom: 20px;
+
+    }
+
+    form>.container-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-section {
+        margin-right: 0 !important;
+    }
+
+    .popup__btn {
+        margin-top: 11px;
+    }
+
+    .mr-40 {
+        margin-right: -.9px;
+    }
+    .popup__title {
+        font-size: 32px;
+    }
+    .form__label {
+        font-size: 20px;
+    }
+    .form-section {
+        width: 100%;
+    }
+    .form__group {
+       width: 100%;
+    }
+    main {
+        padding-bottom: 256px;
+    }
+    footer .container-flex {
+        flex-direction: column;
+    }
+    .menu {
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+    }
+    .menu__item {
+        margin-bottom: 15px;
+    }
+    .menu__link {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .container {
+        max-width: 500px;
+    }
+    header {
+        width: 100%;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        background-color: #1c74bcae;
+        backdrop-filter: blur(3px);
+    }
+}
+@media screen and (max-width: 420px) {
+    .forms {
+        width: 100%;
+    }
+    .about {
+        width: 100%;
+        margin-top: 123px;
+        margin-bottom: 20px;
+    }
+}
