@@ -13,8 +13,7 @@ body {
     font-family: sans-serif;
     width: 100%;
     height: 100vh;
-    background-image: url(../img/bg.png);
-    background-size: cover;
+    background-image: url(../img/fon-it-cube.png);
     overflow-x: hidden;
 }
 .container-flex {
@@ -212,7 +211,7 @@ main {
     background-image: url(../img/bi_check.svg);
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;  
     transition: 0.4s;
 }
 .form__control {
@@ -272,7 +271,7 @@ main {
         height: max-content;
     }
 
-
+    
     .about {
         width: 500px;
         margin-top: 190px;

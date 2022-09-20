@@ -31,7 +31,7 @@ class UserController extends Controller
         $user = User::create($validated);
         Auth::login($user);
 
-        return redirect()->route('profile');
+        return redirect()->route('user.profile');
 
     }
 
@@ -78,7 +78,7 @@ class UserController extends Controller
 
     public function settings() {
 
-        return view('settings');
+        return view('user.settings');
 
     }
 }

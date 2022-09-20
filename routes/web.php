@@ -8,6 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Controllers\CommentController;
 
+use App\Models\RepositoryFile;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,20 +22,28 @@ use App\Http\Controllers\CommentController;
 */
 
 
+
 // Post
 
+Route::name('post.')->group(function() {
 
-Route::name('user.')->group(function () {
-    Route::post('/profile/create', [UserController::class, 'store'])->name('registration');
-    Route::post('/profile/login', [UserController::class, 'login'])->name('login');
-});
 
-Route::name('repository.')->group(function() {
-    Route::post('/repository/create', [RepositoryController::class, 'store'])->name('create');
-    Route::name('comment.')->group(function () {
-        Route::post('/comment/create', [CommentController::class, 'store'])->name('create');
+
+    Route::name('user.')->group(function () {
+        Route::post('/profile/create', [UserController::class, 'store'])->name('registration');
+        Route::post('/profile/login', [UserController::class, 'login'])->name('login');
     });
+
+    Route::name('repository.')->group(function() {
+        Route::post('/repository/create', [RepositoryController::class, 'store'])->name('create');
+        Route::name('comment.')->group(function () {
+            Route::post('/comment/create', [CommentController::class, 'store'])->name('create');
+        });
+    });
+
 });
+
+
 
 
 // Get
@@ -55,14 +65,14 @@ Route::middleware([Authenticate::class])->group(function() {
     Route::get('/profile/{id}', [HomeController::class, 'profile']);
 
 
-    Route::get('/repository/{id}', [RepositoryController::class, 'index']);
-    Route::get('/repository/{id}/{path}', [RepositoryController::class, 'search'])
-        ->where('path', '.*');
-
     Route::name('repository.')->group(function() {
         Route::get('/repository/create', [RepositoryController::class, 'create'])
             ->name('create');
     });
+
+    Route::get('/repository/{id}', [RepositoryController::class, 'index']);
+    Route::get('/repository/{id}/{path}', [RepositoryController::class, 'search'])
+        ->where('path', '.*');
 
     Route::name('shortcode.')->group(function() {
 

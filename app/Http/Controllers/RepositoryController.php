@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Repository;
 use App\Models\RepositoryFolder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,7 @@ class RepositoryController extends Controller
 {
 
     public function index($id) {
+
         $repository = Repository::find($id);
 
         if($repository->user_id != Auth::id()) {
@@ -25,7 +27,7 @@ class RepositoryController extends Controller
         $folders = $repository->foldersOnTop;
         $comments = $repository->comments()->latest()->get();
 
-        return view('repository', [
+        return view('repository.repository', [
             'rep' => $repository,
             'author' => User::find($repository->user_id),
             'files' => $files,
@@ -52,7 +54,7 @@ class RepositoryController extends Controller
                 $files = $folder->allFiles;
                 $folders = $folder->allFolders;
 
-                return view('folder', [
+                return view('repository.folder', [
                     'rep' => $rep,
                     'folder' => $folder,
                     'author' => User::find($rep->user_id),
@@ -70,14 +72,33 @@ class RepositoryController extends Controller
     }
 
     public function create() {
-//        return view('');
+       return view('repository.repository_create');
     }
 
     public function store(Request $request) {
 
-        $repository = new Repository();
-        $mainFolder = new RepositoryFolder();
 
+        $chose = $request->only(['repo-name', 'repo-status', 'repo-access']);
+
+        $validator = Validator::make($chose, [
+            'repo-name' => 'required|min:3',
+            'repo-status' => 'required',
+            'repo-access' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('repository.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $validated = $validator->validated();
+
+        dd($validated);
+
+        // $repository = new Repository();
+        // $mainFolder = new RepositoryFolder();
 
     }
 }

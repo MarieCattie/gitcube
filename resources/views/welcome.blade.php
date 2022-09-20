@@ -49,7 +49,7 @@
                 <!-- Регистрация -->
                 <div class="popup" id="register">
                     <p class="popup__title">Регистрация</p>
-                    <form method="post" action="{{route('user.registration')}}">
+                    <form method="post" action="{{route('post.user.registration')}}">
                         @csrf
                         <div class="container-flex">
                             <div class="mr-40 form-section">
@@ -101,7 +101,7 @@
                 <!-- Вход -->
                 <div class="popup" id="enter">
                     <p class="popup__title">Вход</p>
-                    <form method="post" action="{{ route('user.login') }}">
+                    <form method="post" action="{{ route('post.user.login') }}">
                         @csrf
                         <div class="container-flex">
                             <div class="mr-40 form-section">

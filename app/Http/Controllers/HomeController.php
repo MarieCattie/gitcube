@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
 
     public function friends() {
-        return view('friends');
+        return view('user.friends');
     }
 
     public function profile($id = false)
@@ -42,7 +42,7 @@ class HomeController extends Controller
                 ->relationCheck(User::find($id));
         }
 
-        return view('profile', [
+        return view('user.profile', [
             'user' => $user,
             'friends' => $friends,
             'relation' => $relation,

@@ -53,7 +53,7 @@
                     <h1 class="title-1">Репозитории</h1>
                     <div class="active-btns container-flex">
                         @if($user->id == auth()->id())
-                            <a href="" class="btn">Создать новый</a>
+                            <a href="{{route('repository.create')}}" class="btn">Создать новый</a>
                         @endif
 
                         @if(count($repositories) > 4)

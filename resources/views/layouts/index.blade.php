@@ -61,6 +61,19 @@
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('assets/js/msg.js')}}"></script>
 
+@yield('jquery')
+
+<script>
+        $('.select-type').on('change', function () {
+            if ($(this).val() == "open") {
+                $('.profile-edit--settings').slideDown()
+            }
+            else {
+                $('.profile-edit--settings').slideUp()
+            }
+        })
+    </script>
+
 @if($errors->any())
     <script>
         @foreach ($errors->all() as $error)

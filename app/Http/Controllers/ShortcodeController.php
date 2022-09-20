@@ -21,7 +21,7 @@ class ShortcodeController extends Controller
 
         $content = Storage::disk('shortcodes')->get('krek.js');
 
-        return view('shortcode', [
+        return view('shortcode.shortcode', [
             'shortcode' => $shortcode,
             'content' => $content
         ]);
@@ -52,6 +52,6 @@ class ShortcodeController extends Controller
     }
 
     public function faq() {
-        return view('shortcode_faq');
+        return view('shortcode.shortcode_faq');
     }
 }

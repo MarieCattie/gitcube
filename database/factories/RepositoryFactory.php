@@ -19,11 +19,12 @@ class RepositoryFactory extends Factory
 
         $title = $this->faker->word;
 
+        
+
         return [
             'title' => $title,
             'user_id' => $this->faker->numberBetween(1, 10),
             'lang' => 'php'
-
         ];
     }
 }
