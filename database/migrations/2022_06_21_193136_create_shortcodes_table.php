@@ -18,8 +18,16 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('user_id')->constrained();
             $table->string('filename')->unique();
-            $table->boolean('status');
-            $table->unsignedTinyInteger('access');
+            $table->boolean('cdn')->default(false);
+
+            /**
+             * Access
+             * 1 - любой человек (cdn работает)
+             * 2 - только я (cdn не работает)
+             * 3 - никто (даже я) (cdn не работает) (на случай блокировки)
+             */
+
+            $table->unsignedTinyInteger('access')->default(1);
             $table->timestamps();
         });
     }

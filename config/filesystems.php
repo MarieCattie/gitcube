@@ -39,7 +39,7 @@ return [
         'shortcodes' => [
             'driver' => 'local',
             'root' => storage_path('app/public/shortcodes'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/storage/shortcodes',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -47,7 +47,15 @@ return [
         'repositories' => [
             'driver' => 'local',
             'root' => storage_path('app/public/repositories'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/storage/repositories',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/avatars'),
+            'url' => env('APP_URL').'/storage/avatars',
             'visibility' => 'public',
             'throw' => false,
         ],

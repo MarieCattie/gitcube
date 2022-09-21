@@ -17,16 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('user_id')->constrained();
-            $table->string('lang');
-            $table->boolean('status')->default(true);
+            $table->string('lang')->default('empty');
 
             /*
-             * 0 - только я
-             * 1 - друзья
-             * 2 - друзья и друзья друзей
-             * 3 - все
+             * 1 - все
+             * 2 - мои друзья
+             * 3 - только я 
+             * 4 - никто (даже я) (на случай блокировки)
              * */
-            $table->unsignedTinyInteger('access')->default(3);
+            $table->unsignedTinyInteger('access')->default(1);
             $table->unsignedInteger('watches')->default(0);
             $table->timestamps();
         });

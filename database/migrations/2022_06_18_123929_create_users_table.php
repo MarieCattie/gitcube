@@ -20,8 +20,16 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('login')->unique();
-            $table->string('role')->default('user');
-            $table->string('photo_src')->default('user.png');
+
+            /**
+             * Roles:
+             * user - 1
+             * moderator - 2 
+             * admin - 3
+             * root - 4
+             */
+            $table->unsignedTinyInteger('power')->default(1);
+            $table->string('photo_src')->nullable()->default(null);
             $table->timestamp('last_seen')->nullable()->default(null);
             $table->rememberToken();
 

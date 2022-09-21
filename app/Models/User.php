@@ -3,13 +3,17 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Repository;
 use Illuminate\Http\Request;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\DB;
 
-use App\Models\Repository;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class User extends Authenticatable
@@ -21,7 +25,8 @@ class User extends Authenticatable
         'surname',
         'email',
         'password',
-        'login'
+        'login',
+        'photo_src'
     ];
 
     protected $hidden = [
@@ -129,6 +134,13 @@ class User extends Authenticatable
     public function isOnline() {
         if(Carbon::now() > Carbon::parse($this->last_seen)->addMinutes(2)) return false;
         return true;
+    }
+
+    public function getPhoto() {
+        if($this->photo_src === null) {
+            return Storage::disk('avatars')->url('user.png');
+        }
+        return Storage::disk('avatars')->url($this->photo_src);
     }
 
 }

@@ -138,6 +138,5 @@
 
         </form>
 
-    </main>
 @endsection
         

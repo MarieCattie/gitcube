@@ -103,7 +103,7 @@
             <section class="comment-section">
                 <h1 class="title-1">Комментарии</h1>
                 <div class="comments">
-                    <form action="{{route('repository.comment.create')}}" method="post">
+                    <form action="{{route('post.repository.comment.create')}}" method="post">
                         @csrf
                         <input type="hidden" name="repository" value="{{$rep->id}}">
                         <textarea class="comments__item" name="text"></textarea>
@@ -113,11 +113,20 @@
                     @foreach($comments as $comment)
                         <!-- Комментарий -->
                         <div class="comments__item comment">
-                            <div class="comment__head">
-                                <a href="/profile/{{$comment->user->id}}" class="comment__avatar-author">
-                                    <img src="{{asset('assets/img/' . $comment->user->photo_src)}}" alt="">
-                                </a>
-                                <a href="/profile/{{$comment->user->id}}" class="comment__name-author">{{$comment->user->login}}</a>
+                            <div class="comment__head container-flex">
+                                <div class="container-flex">
+                                    <a href="/profile/{{$comment->user->id}}" class="comment__avatar-author">
+                                        <img src="{{$comment->user->getPhoto()}}" alt="">
+                                    </a>
+                                    <a href="/profile/{{$comment->user->id}}" class="comment__name-author">{{$comment->user->login}}</a>
+                                </div>
+                                <div>
+                                    <a href="" class="short__link">Пожаловаться</a>
+                                    
+                                    @if((Auth::id() == $comment->user->id) || Auth::user()->power > 1)
+                                        <a href="" class="delete"></a>
+                                    @endif
+                                </div>
                             </div>
                             <div class="comment__main">{{$comment->comment}}</div>
                         </div>

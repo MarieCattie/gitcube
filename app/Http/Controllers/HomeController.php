@@ -9,6 +9,10 @@ use App\Models\User;
 class HomeController extends Controller
 {
 
+    public function test () {
+        
+    }
+
     public function index()
     {
         if(Auth::check()) return redirect()->route('profile');

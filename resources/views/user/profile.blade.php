@@ -8,7 +8,7 @@
         <div class="content-container content profile">
             <div class="profile__user">
                 <div class="profile__avatar">
-                    <img src="{{asset('assets/img/' . $user->photo_src)}}" alt="">
+                    <img src="{{$user->getPhoto()}}" alt="">
                     <!-- Место для изображения img -->
                 </div>
                 <div>
@@ -57,7 +57,7 @@
                         @endif
 
                         @if(count($repositories) > 4)
-                            <a href="" class="btn btn-grey">Показать все</a>
+                            <a href="{{route('repository.all')}}" class="btn btn-grey">Показать все</a>
                         @endif
                     </div>
                 </div>
@@ -95,11 +95,11 @@
                     <h1 class="title-1">Шорткоды</h1>
                     <div class="active-btns container-flex">
                         @if($user->id == auth()->id())
-                            <a href="" class="btn">Создать новый</a>
+                            <a href="{{route('shortcode.create')}}" class="btn">Создать новый</a>
                         @endif
 
                         @if(count($shortcodes) > 9)
-                            <a href="" class="btn btn-grey">Показать все</a>
+                            <a href="{{route('shortcode.all')}}" class="btn btn-grey">Показать все</a>
                         @endif
                     </div>
                 </div>

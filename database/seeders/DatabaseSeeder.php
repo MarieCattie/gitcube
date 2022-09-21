@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'sh@bk.ru',
             'password' => 'root',
             'login' => 'krekcr',
-            'role' => 'admin'
+            'power' => 4
         ]);
 
 //        UserFactory::factory(30)->create();

@@ -18,6 +18,8 @@ class RepositoryController extends Controller
 
         $repository = Repository::find($id);
 
+        if($repository === null) return view('404');
+
         if($repository->user_id != Auth::id()) {
             $repository->watches++;
             $repository->save();
@@ -95,10 +97,63 @@ class RepositoryController extends Controller
 
         $validated = $validator->validated();
 
-        dd($validated);
+        $access = 1;
 
-        // $repository = new Repository();
-        // $mainFolder = new RepositoryFolder();
+        if($validated['repo-status'] != 'repo-open') {
+
+            if($validated['repo-access'] == 'friends') {
+                $access = 2;
+            }else{
+                $access = 3;
+            }
+            
+        }
+
+
+        $rep = new Repository();
+        $rep->title = $validated['repo-name'];
+        $rep->access = $access;
+        $rep->user_id = Auth::id();
+        $rep->save();
+
+
+        $mainFolder = new RepositoryFolder();
+        $mainFolder->title = '.main';
+        $mainFolder->main = 1;
+        $mainFolder->repository_id = $rep->id;
+        $mainFolder->save();
+
+        return redirect()->route('repository.index', ['id' => $rep->id]);
+
+
+
 
     }
+
+    public function searchPage() {
+
+        return view('repository.repository_search');
+
+    }
+
+    public function all($id = 0) {
+
+        if($id == 0){
+            $reps = Repository::where('user_id', Auth::id())->get();
+            $user = Auth::user();
+        }else{
+            $reps = Repository::where('user_id', $id)->get();
+            $user = User::find($id);
+        }
+
+
+        if($user === null) return view('404');
+
+        return view('repository.repository_all', [
+            'repositories' => $reps,
+            'user' => $user
+        ]);
+
+    }
+
 }

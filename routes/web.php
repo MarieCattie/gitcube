@@ -10,16 +10,14 @@ use App\Http\Controllers\CommentController;
 
 use App\Models\RepositoryFile;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+/**
+ * Test routes
+ */
+
+ Route::get('/test', function() {
+    
+ });
 
 
 
@@ -41,6 +39,10 @@ Route::name('post.')->group(function() {
         });
     });
 
+    Route::name('shortcode.')->group(function() {
+        Route::post('/shortcode/create', [ShortcodeController::class, 'store'])->name('create');
+    });
+
 });
 
 
@@ -52,44 +54,92 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 Route::middleware([Authenticate::class])->group(function() {
 
-    Route::name('user.')->group(function() {
-        Route::get('/profile/settings', [UserController::class, 'settings'])
-            ->name('settings');
-        Route::get('/profile/logout', [UserController::class, 'logout'])
-            ->name('logout');
-    });
+
+    // User
+
+        Route::name('user.')->group(function() {
+            Route::get('/profile/settings', [UserController::class, 'settings'])
+                ->name('settings');
+            Route::get('/profile/logout', [UserController::class, 'logout'])
+                ->name('logout');
+        });
+
+        Route::get('/profile', [HomeController::class, 'profile'])
+            ->name('profile');
+        Route::get('/profile/{id}', [HomeController::class, 'profile']);
 
 
-    Route::get('/profile', [HomeController::class, 'profile'])
-        ->name('profile');
-    Route::get('/profile/{id}', [HomeController::class, 'profile']);
+
+        Route::name('friend.')->group(function() {
+            Route::get('/friends', [HomeController::class, 'friends'])->name('index');
+        });
+
+        Route::get('/support', [HomeController::class, 'support'])->name('support');
+
+    // End User
 
 
-    Route::name('repository.')->group(function() {
-        Route::get('/repository/create', [RepositoryController::class, 'create'])
-            ->name('create');
-    });
+    // Repository
 
-    Route::get('/repository/{id}', [RepositoryController::class, 'index']);
-    Route::get('/repository/{id}/{path}', [RepositoryController::class, 'search'])
-        ->where('path', '.*');
+        Route::name('repository.')->group(function() {
+            Route::get('/repository/create', [RepositoryController::class, 'create'])
+                ->name('create');
 
-    Route::name('shortcode.')->group(function() {
+            Route::get('/repository/all', [RepositoryController::class, 'all'])
+                ->name('all');
 
-        Route::get('/shortcode/{filename}', [ShortcodeController::class, 'index']);
+            Route::get('/repository/all/{id}', [RepositoryController::class, 'all'])
+                ->name('all');
 
-        Route::get('/shortcode/faq', [ShortcodeController::class, 'faq'])
-            ->name('faq');
-    });
+            Route::get('/repository/search', [RepositoryController::class, 'searchPage'])
+                ->name('search');
 
-    Route::name('friend.')->group(function() {
-        Route::get('/friends', [HomeController::class, 'friends'])->name('index');
-    });
+            Route::get('/repository/{id}', [RepositoryController::class, 'index'])->name('index');
+            Route::get('/repository/{id}/{path}', [RepositoryController::class, 'search'])
+                ->where('path', '.*');
+        });
 
-    Route::get('/support', [HomeController::class, 'support'])->name('support');
 
+    // End Repository
+    
+
+    // ShortCode
+
+        Route::name('shortcode.')->group(function() {
+
+
+            Route::get('/shortcode/faq', [ShortcodeController::class, 'faq'])
+                ->name('faq');
+            Route::get('/shortcode/all', [ShortcodeController::class, 'all'])
+                ->name('all');
+            Route::get('/shortcode/create', [ShortcodeController::class, 'create'])
+                ->name('create');
+
+            Route::get('/shortcode/{filename}', [ShortcodeController::class, 'index'])
+                ->name('index');
+
+            
+        });
+
+    // End ShortCode
 
 });
+
+
+
+/**
+ * 
+ *       ┏┓
+ *       ┃┃
+ *  ┏━━┳━┛┣━━┓
+ *  ┃┏━┫┏┓┃┏┓┃
+ *  ┃┗━┫┗┛┃┃┃┃
+ *  ┗━━┻━━┻┛┗┛
+ * 
+ */
+
+
+
 
 Route::get('/shortcode/cdn/{filename}', [ShortcodeController::class, 'cdn']);
 Route::get('/shortcode/download/{filename}', [ShortcodeController::class, 'download']);

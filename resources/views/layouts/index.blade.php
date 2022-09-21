@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/msgs.css')}}">
     <title>GitCube | @yield('title')</title>
 
+    <link rel="shortcut icon" href="{{asset('assets/img/logo-filled.svg')}}" type="image/x-icon">
     @php
         $user = \App\Models\User::find(\Illuminate\Support\Facades\Auth::id());
         $user->last_seen = \Carbon\Carbon::now();
@@ -30,7 +31,7 @@
     <div class="user">
         <div class="icon user__notice"><img src="{{asset('assets/img/bell.svg')}}" alt=""></div>
         <div class="avatar">
-            <img src="{{asset('assets/img/' . $user->photo_src)}}" alt="">
+            <img src="{{$user->getPhoto()}}" alt="">
         </div>
         <p class="user__name">{{ auth()->user()->name }}</p>
         <a class="icon user__arrow"><img src="{{asset('assets/img/arrow.svg')}}" alt=""></a>

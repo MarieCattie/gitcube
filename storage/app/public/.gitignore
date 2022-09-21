@@ -1,2 +1,6 @@
 *
+!public/
+!avatars/
+!repositories/
+!shortcodes/
 !.gitignore
