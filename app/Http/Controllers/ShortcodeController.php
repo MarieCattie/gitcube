@@ -81,12 +81,12 @@ class ShortcodeController extends Controller
         $shortcode = new Shortcode();
         $shortcode->title = $validated['short-name'];
         $shortcode->user_id = Auth::id();
-        $shortcode->filename = md5(rand(-10000, 10000)) . ".txt";
+        $shortcode->filename = md5(rand(-10000, 10000));
         $shortcode->cdn = filter_var($validated['show-mail'], FILTER_VALIDATE_BOOL); 
         $shortcode->save();
 
 
-        Storage::disk('shortcodes')->put($shortcode->filename, "// $shortcode->title.txt");
+        Storage::disk('shortcodes')->put($shortcode->filename . ".txt", "// $shortcode->title.txt");
         return redirect()->route('shortcode.index', ['id' => $shortcode->id]);
 
 

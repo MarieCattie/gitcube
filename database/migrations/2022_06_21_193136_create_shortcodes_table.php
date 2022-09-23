@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('filename')->unique();
             $table->boolean('cdn')->default(false);
+            $table->string('ext')->default('txt');
 
             /**
              * Access
