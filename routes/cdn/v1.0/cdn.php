@@ -10,8 +10,12 @@ Route::prefix('short')->group(function() {
 
 
     
-    // {host}/cdn/short/get/{user}/test.txt
-    Route::get('/get/{user}/{filename}', [MainController::class, 'get']);
+    // {host}/cdn/v1.0/short/view/{filename}
+    Route::get('/view/{user}@{titlename}', [MainController::class, 'view']);
 
+    // {host}/cdn/v1.0/short/download/{filename}
+    Route::get('/download/{user}@{titlename}', [MainController::class, 'download']);
+
+    Route::get('/{user}@{titlename}', [MainController::class, 'cdn']);
 
 });

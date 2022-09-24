@@ -16,25 +16,50 @@ use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
-    public function get($user, $title) 
+
+    
+
+    protected function getShortcode($user, $titlename)
     {
+
+        $title = explode('.', $titlename)[0];
+        $ext = explode('.', $titlename)[1];
         
-
-
         $shortcode = Shortcode::where([
-
-            ['user_id', $user], 
-            ['title', $title]
-        
+            ['title', $title],
+            ['ext', $ext],
+            ['user_id', $user]
         ])->first();
 
         if($shortcode === null) return response(404);
 
-
-
-        return response()->file(
-            $shortcode->getPhysicalAddress()
-        );
+        return $shortcode;
 
     }
+
+    public function cdn($user, $titlename)
+    {
+
+        $shortcode = $this->getShortcode($user, $titlename);
+        return response()->file($shortcode->getPhysicalAddress(), [
+            'Content-Type' => 'text/javascript'
+        ]);
+    
+    }
+
+    public function view($user, $titlename) 
+    {
+
+        $shortcode = $this->getShortcode($user, $titlename);
+        return response($shortcode->gitcubeStamp());
+
+    }
+
+
+    public function download($user, $titlename)
+    {
+        $shortcode = $this->getShortcode($user, $titlename);
+        return $shortcode->download();
+    }
+
 }

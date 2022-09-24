@@ -34,8 +34,13 @@ class HomeController extends Controller
         if(!$id) $id = Auth::id();
 
         $user = User::find($id);
+
+        if($user === null) return view('404');
+
         $friends = $user->friends();
         $relation = null;
+
+
 
         $shortcodes = $user->shortcodes;
         $repositories = $user->repositories()->latest()->limit(4)->get();
