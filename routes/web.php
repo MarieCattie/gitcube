@@ -62,11 +62,13 @@ Route::middleware([Authenticate::class])->group(function() {
                 ->name('settings');
             Route::get('/profile/logout', [UserController::class, 'logout'])
                 ->name('logout');
+
+            Route::get('/profile', [HomeController::class, 'profile'])
+                ->name('profile');
+            Route::get('/profile/{id}', [HomeController::class, 'profile']);
         });
 
-        Route::get('/profile', [HomeController::class, 'profile'])
-            ->name('profile');
-        Route::get('/profile/{id}', [HomeController::class, 'profile']);
+        
 
 
 
@@ -115,7 +117,7 @@ Route::middleware([Authenticate::class])->group(function() {
             Route::get('/shortcode/create', [ShortcodeController::class, 'create'])
                 ->name('create');
 
-            Route::get('/shortcode/{filename}', [ShortcodeController::class, 'index'])
+            Route::get('/shortcode/{id}', [ShortcodeController::class, 'index'])
                 ->name('index');
 
             
@@ -127,22 +129,6 @@ Route::middleware([Authenticate::class])->group(function() {
 
 
 
-/**
- * 
- *       ┏┓
- *       ┃┃
- *  ┏━━┳━┛┣━━┓
- *  ┃┏━┫┏┓┃┏┓┃
- *  ┃┗━┫┗┛┃┃┃┃
- *  ┗━━┻━━┻┛┗┛
- * 
- */
-
-
-
-
-Route::get('/shortcode/cdn/{filename}', [ShortcodeController::class, 'cdn']);
-Route::get('/shortcode/download/{filename}', [ShortcodeController::class, 'download']);
 
 
 

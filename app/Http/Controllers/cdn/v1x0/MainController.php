@@ -51,7 +51,7 @@ class MainController extends Controller
     {
 
         $shortcode = $this->getShortcode($user, $titlename);
-        return response($shortcode->gitcubeStamp());
+        return response($shortcode->gitcubeStamp())->header('Content-Type', 'text/json');
 
     }
 
