@@ -117,7 +117,10 @@
                         <div class="short">
                             <a href="/shortcode/{{$shortcode->filename}}" class="short__name">{{$shortcode->title}}</a>
                             <div class="short__controls">
-                                <a href="{{url("/shortcode/download/$shortcode->filename")}}" class="download">
+                                <a href="{{route('short.download', [
+                                    'user' => $shortcode->user->id,
+                                    'titlename' => $shortcode->titlename()
+                                ])}}" class="download">
                                     <img src="{{asset('assets/img/download.svg')}}" alt="">
                                 </a>
                                 @if($user->id == auth()->id())

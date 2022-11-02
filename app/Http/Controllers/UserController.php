@@ -62,8 +62,7 @@ class UserController extends Controller
         ], $remember);
 
         if($authorized)
-            return redirect()->route('user.
-            profile');
+            return redirect()->route('user.profile');
 
         return redirect()->route('welcome')->withErrors(['Логин или пароль неверный']);
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\CodeComment;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,7 @@ class Shortcode extends Model
     use HasFactory;
 
 
-    public function author() {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
@@ -56,5 +57,20 @@ class Shortcode extends Model
         return $header . "\n\n" . Storage::disk('shortcodes')->get($this->filename());
 
 
+    }
+
+
+    public function checkAccess()
+    {
+        return $this->access;
+    }
+
+    public function checkUserAccess()
+    {
+        if(!$this->checkAccess() && ($this->user != Auth::user() || Auth::user()->power < 3))
+        {
+            return false;
+        }
+        return true;
     }
 }

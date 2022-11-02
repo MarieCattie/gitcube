@@ -65,7 +65,8 @@ Route::middleware([Authenticate::class])->group(function() {
 
             Route::get('/profile', [HomeController::class, 'profile'])
                 ->name('profile');
-            Route::get('/profile/{id}', [HomeController::class, 'profile']);
+            Route::get('/profile/{id}', [HomeController::class, 'profile'])
+                ->name('user');
         });
 
         
@@ -116,10 +117,15 @@ Route::middleware([Authenticate::class])->group(function() {
                 ->name('all');
             Route::get('/shortcode/create', [ShortcodeController::class, 'create'])
                 ->name('create');
+            
+
 
             Route::get('/shortcode/{id}', [ShortcodeController::class, 'index'])
                 ->name('index');
-
+            Route::get('/shortcode/{id}/edit', [ShortcodeController::class, 'edit'])
+                ->name('edit');
+            Route::get('/shortcode/{id}/download', [ShortcodeController::class, 'download'])
+                ->name('download');
             
         });
 

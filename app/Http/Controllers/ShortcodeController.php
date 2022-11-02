@@ -41,12 +41,18 @@ class ShortcodeController extends Controller
 
     }
 
-    public function download($filename) {
+    public function download($id) {
 
-        $shortcode = Shortcode::where('filename', '=', $filename)->first();
+        $shortcode = Shortcode::find($id);
+
         if($shortcode == null) return ['error' => 404];
 
-        return response()->download("storage/shortcodes/$shortcode->filename", $shortcode->filename, ['Content-Type' => 'text/javascript']);
+
+        // dd($shortcode);
+        if($shortcode->checkUserAccess())
+        {
+            return $shortcode->download();
+        }
 
     }
 
@@ -105,8 +111,16 @@ class ShortcodeController extends Controller
         $shortcode = Shortcode::where('filename', '=', $filename)->first();
         if($shortcode == null) return view('404');
 
+        
+        if(!$shortcode->checkAccess() && $shortcode->user != Auth::user()) {
+            return view('block', [
+                'error' => 'Шорткод не доступен'
+            ]);
+        }
 
-        $content = Storage::disk('shortcodes')->get('krek.js');
+        $content = Storage::disk('shortcodes')->get($shortcode->filename());
+        
+
 
         return view('shortcode.shortcode', [
             'shortcode' => $shortcode,
@@ -143,5 +157,9 @@ class ShortcodeController extends Controller
 
     public function create() {
         return view('shortcode.shortcode_create');
+    }
+
+    public function edit() {
+        return view('shortcode.shortcode_edit');
     }
 }

@@ -33,6 +33,7 @@ class MainController extends Controller
 
         if($shortcode === null) return response(404);
 
+
         return $shortcode;
 
     }
@@ -41,6 +42,12 @@ class MainController extends Controller
     {
 
         $shortcode = $this->getShortcode($user, $titlename);
+        if($shortcode->cdn == 0) {
+            return response()->json(['error' => 'cdn off']);
+        }
+        if(!$shortcode->checkAccess()) {
+            return response()->json(['error' => 'not-access']);
+        }
         return response()->file($shortcode->getPhysicalAddress(), [
             'Content-Type' => 'text/javascript'
         ]);
@@ -51,6 +58,9 @@ class MainController extends Controller
     {
 
         $shortcode = $this->getShortcode($user, $titlename);
+        if(!$shortcode->checkAccess()) {
+            return response()->json(['error' => 'not-access']);
+        }
         return response($shortcode->gitcubeStamp())->header('Content-Type', 'text/json');
 
     }
@@ -59,6 +69,9 @@ class MainController extends Controller
     public function download($user, $titlename)
     {
         $shortcode = $this->getShortcode($user, $titlename);
+        if(!$shortcode->checkAccess()) {
+            return response()->json(['error' => 'not-access']);
+        }
         return $shortcode->download();
     }
 
