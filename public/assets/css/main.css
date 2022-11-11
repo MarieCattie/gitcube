@@ -62,7 +62,51 @@ body {
     background-image: url(../img/bg-grey.png);
     background-repeat: repeat;
 }
-
+/*Modal Drag n Drop*/
+.popup-load-file {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+    justify-content: center;
+    alight-items: center;
+}
+.popup-load-file__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    alight-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    border-radius: 7px;
+    background-color: #fff;
+}
+.popup-load-file__drop-area {
+    border-radius: 10px;
+    padding: 20px;
+    height: 60vh;
+    border: 2px dashed #0C71C1;
+}
+.popup-load-file__drop-area--highlight {
+    border-color: #269cff;
+    background-color: #e3f2ff;
+}
+#fileElem {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    appearance: none;
+    top: 0;
+    left: 0;
+}
+.popup-load-file__choose {
+    display: block;
+}
+/*//Modal Drag n Drop*/
 .container {
     max-width: 650px;
     width: 100%;
