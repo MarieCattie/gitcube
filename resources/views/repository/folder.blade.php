@@ -20,8 +20,8 @@
                         <a class="show-more__btn"><span></span><span></span><span></span></a>
                         <div class="show-more__popup">
                             <a href="" class="show-more__popup__item show-more__popup__item-settings">Настройки</a>
-                            <a href="" class="show-more__popup__item show-more__popup__item-zip">Загрузить Zip</a>
-                            <a href="" class="show-more__popup__item show-more__popup__item-uploadfile">Загрузить
+                            <a href="" class="show-more__popup__item show-more__popup__item-zip load-btn">Загрузить Zip</a>
+                            <a href="" class="show-more__popup__item show-more__popup__item-uploadfile load-btn">Загрузить
                                 файл</a>
                             <div
                                 class="show-more__popup__item show-more__popup__item-public show-more__popup__item-select">
@@ -84,7 +84,7 @@
                     @endforeach
 
                 </div>
-                <button class="btn">Загрузить</button>
+                <button class="btn load-btn">Загрузить</button>
             </section>
             <!-- // Секция -->
 

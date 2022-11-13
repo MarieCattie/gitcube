@@ -18,10 +18,10 @@
                         <a class="show-more__btn"><span></span><span></span><span></span></a>
                         <div class="show-more__popup">
 
-                            <a  
+                            <a
                                 href="{{route('shortcode.download', [
                                     'id' => $shortcode
-                                ])}}" 
+                                ])}}"
                                 class="show-more__popup__item show-more__popup__item-download">Скачать</a>
 
                             @if ($shortcode->cdn)
@@ -30,19 +30,19 @@
 
 
                             @if ($shortcode->user == Auth::user() || Auth::user()->power >= 3)
-                                <a 
-                                    href="{{route('shortcode.edit', ['id' => $shortcode->id])}}" 
+                                <a
+                                    href="{{route('shortcode.edit', ['id' => $shortcode->id])}}"
                                     class="show-more__popup__item show-more__popup__item-edit">Изменить</a>
-                                
-                                
-                                <a 
-                                    href="{{url("/shortcode/download/$shortcode->filename")}}" 
-                                    class="show-more__popup__item show-more__popup__item-uploadfile">Загрузить файл</a>
+
+
+                                <a
+{{--                                    href="{{url("/shortcode/download/$shortcode->filename")}}"--}}
+                                    class="show-more__popup__item show-more__popup__item-uploadfile load-btn">Загрузить файл</a>
 
                                 <div class="show-more__popup__item show-more__popup__item-public show-more__popup__item-select">
                                     <a class="show-more__item-active" data-type="public">
                                         @if ($shortcode->access)
-                                            Публичный                                            
+                                            Публичный
                                         @else
                                             Закрытый
                                         @endif
@@ -52,10 +52,10 @@
                                         <a data-type="private" class="show-more__popup-select-item">Закрытый</a>
                                     </div>
                                 </div>
-                                
+
                                 <a class="show-more__popup__item show-more__popup__item-delete">Удалить</a>
                             @endif
-                            
+
                         </div>
                     </div>
                 </div>

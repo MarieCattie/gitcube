@@ -65,31 +65,56 @@ body {
 /*Modal Drag n Drop*/
 .popup-load-file {
     width: 100%;
-    height: 100%;
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     top: 0; left: 0;
     z-index: 100;
     background: rgba(0, 0, 0, .5);
     display: none;
     justify-content: center;
     alight-items: center;
+
 }
 .popup-load-file__content {
+    max-width: 590px;
+    min-height: 20vh;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
+    flex-direction: column;
     alight-items: center;
     justify-content: center;
     padding: 20px 40px;
+    padding-top: 30px;
     border-radius: 7px;
     background-color: #fff;
 }
 .popup-load-file__drop-area {
     border-radius: 10px;
     padding: 20px;
-    height: 60vh;
     border: 2px dashed #0C71C1;
+}
+.popup-load-file__drop-area p {
+    font-size: 14px;
+    color: #737c8c;
+    text-align: center;
+}
+.popup-load-file__drop-area label {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #82a4bf;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+    margin-top: 15px;
+    vertical-align: middle;
+
 }
 .popup-load-file__drop-area--highlight {
     border-color: #269cff;
@@ -105,6 +130,42 @@ body {
 }
 .popup-load-file__choose {
     display: block;
+}
+.popup-load-file__gallery {
+    max-height: 200px;
+    overflow: auto;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #269cff #fff;
+}
+.popup-load-file__gallery::-webkit-scrollbar {
+    width: 4px;
+}
+.popup-load-file__gallery::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.popup-load-file__gallery::-webkit-scrollbar-thumb {
+    background-color: #269cff;
+    border-radius: 50px;
+}
+
+.popup-load-file__gallery > * {
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.popup-load-file__gallery-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.popup-load-file__gallery-item p {
+    margin-left: 10px;
 }
 /*//Modal Drag n Drop*/
 .container {

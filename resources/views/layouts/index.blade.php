@@ -24,13 +24,15 @@
 <div class="popup-load-file">
     <div class="popup-load-file__content">
         <div class="popup-load-file__drop-area">
-            <form action="">
-                <p>Загрузить файл или перетащите его в выделенную область</p>
+            <form enctype="multipart/form-data">
+                <p>Загрузите файл или перетащите его в выделенную область</p>
                 <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
                 <label class="popup-load-file__choose" for="fileElem">Выбрать изображения</label>
             </form>
         </div>
+        <div class="popup-load-file__gallery">
 
+        </div>
     </div>
 </div>
 
@@ -72,10 +74,10 @@
         <a href="{{route('support')}}" class="menu-link">Техническая поддержка</a>
     </nav>
 </footer>
-<script src="{{asset('/public/assets/js/jquery-3.6.0.js')}}"></script>
-<script src="{{asset('/public/assets/js/main.js')}}"></script>
-<script src="{{asset('/public/assets/js/msg.js')}}"></script>
-<script src="{{asset('/public/assets/js/popup.js')}}"></script>
+<script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
+<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('assets/js/msg.js')}}"></script>
+<script src="{{asset('assets/js/popup.js')}}"></script>
 
 @yield('jquery')
 
